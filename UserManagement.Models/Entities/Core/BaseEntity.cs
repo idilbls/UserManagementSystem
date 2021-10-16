@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace UserManagement.Models.Entities.Core
 {
@@ -9,6 +7,7 @@ namespace UserManagement.Models.Entities.Core
         public BaseEntity()
         {
             this.IsActive = true;
+            this.CreationTime = DateTime.Now;
         }
 
         public bool IsActive { get; set; }

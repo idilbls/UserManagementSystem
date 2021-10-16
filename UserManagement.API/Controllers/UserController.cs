@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using UserManagement.BusinessLogic.Abstract;
+using UserManagement.Shared.DTOs.Users;
 
 namespace UserManagement.API.Controllers
 {
@@ -17,6 +15,37 @@ namespace UserManagement.API.Controllers
         public UserController(IUserService userService)
         {
             _userService = userService;
+        }
+
+        [HttpPost("get_all")]
+        public async Task<IList<UserDto>> GetAllUsers()
+        {
+            return await _userService.GetAllUsersAsync();
+            
+        }
+
+        [HttpPost("get_user_by_id")]
+        public async Task<UserDto> GetUserById([FromBody] int id)
+        {
+            return await _userService.GetUserByIdAsync(id);
+        }
+
+        [HttpPost("add")]
+        public async Task<UserDto> AddUser([FromBody] UserDto user)
+        {
+            return await _userService.AddUserAsync(user);
+        }
+
+        [HttpPost("update")]
+        public async Task<UserDto> Update([FromBody] UserDto user)
+        {
+            return await _userService.UpdateAsync(user);
+        }
+
+        [HttpPost("delete")]
+        public async Task<bool> DeleteAsync([FromBody] int id)
+        {
+            return await _userService.DeleteAsync(id);
         }
     }
 }
