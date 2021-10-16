@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Abp.UI;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 using UserManagement.BusinessLogic.Abstract;
 using UserManagement.Core.Context;
 using UserManagement.Models.Entities.Users;
+using UserManagement.Models.Errors;
 using UserManagement.Shared.DTOs.Users;
 
 namespace UserManagement.BusinessLogic.Service
@@ -34,7 +36,7 @@ namespace UserManagement.BusinessLogic.Service
             catch (Exception ex)
             {
 
-                throw;
+                throw new UserFriendlyException((int)ErrorCodes.UserNotFound, ErrorMessages.UserNotFound, ex.Message);
             }
         }
 
@@ -50,7 +52,7 @@ namespace UserManagement.BusinessLogic.Service
             catch (Exception ex)
             {
 
-                throw;
+                throw new UserFriendlyException((int)ErrorCodes.UserNotFound, ErrorMessages.UserNotFound, ex.Message);
             }
 
         }
@@ -65,7 +67,7 @@ namespace UserManagement.BusinessLogic.Service
             catch (Exception ex)
             {
 
-                throw;
+                throw new UserFriendlyException((int)ErrorCodes.UsersNotFound, ErrorMessages.UsersNotFound, ex.Message);
             }
         }
 
@@ -79,7 +81,7 @@ namespace UserManagement.BusinessLogic.Service
             catch (Exception ex)
             {
 
-                throw;
+                throw new UserFriendlyException((int)ErrorCodes.UserNotFound, ErrorMessages.UserNotFound, ex.Message);
             }
         }
 
@@ -103,7 +105,7 @@ namespace UserManagement.BusinessLogic.Service
             catch (Exception ex)
             {
 
-                throw;
+                throw new UserFriendlyException((int)ErrorCodes.UserNotFound, ErrorMessages.UserNotFound, ex.Message);
             }
 
         }
