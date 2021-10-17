@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.API", "UserManagement.API\UserManagement.API.csproj", "{A8DE7FDD-5F09-4DC4-A9AF-EA38D5D840F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Core", "UserManagement.Core\UserManagement.Core.csproj", "{D03C6A35-BE3A-4A57-9705-57A31D6FE9F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Core", "UserManagement.Core\UserManagement.Core.csproj", "{D03C6A35-BE3A-4A57-9705-57A31D6FE9F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.BusinessLogic", "UserManagement.BusinessLogic\UserManagement.BusinessLogic.csproj", "{74159BCE-4C40-4DF5-8AFF-A948CFA4E8F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.BusinessLogic", "UserManagement.BusinessLogic\UserManagement.BusinessLogic.csproj", "{74159BCE-4C40-4DF5-8AFF-A948CFA4E8F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Models", "UserManagement.Models\UserManagement.Models.csproj", "{EF5EA968-5A40-43AA-9421-1A8D2D96003D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Models", "UserManagement.Models\UserManagement.Models.csproj", "{EF5EA968-5A40-43AA-9421-1A8D2D96003D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Shared", "UserManagement.Shared\UserManagement.Shared.csproj", "{5CB6E63C-015D-4C88-97FF-F1533122F052}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Shared", "UserManagement.Shared\UserManagement.Shared.csproj", "{5CB6E63C-015D-4C88-97FF-F1533122F052}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

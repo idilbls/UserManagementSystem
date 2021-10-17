@@ -25,25 +25,25 @@ namespace UserManagement.API.Controllers
         }
 
         [HttpPost("get_user_by_id")]
-        public async Task<UserDto> GetUserById([FromBody] int id)
+        public async Task<UserDto> GetUserById(int id)
         {
             return await _userService.GetUserByIdAsync(id);
         }
 
         [HttpPost("add")]
-        public async Task<UserDto> AddUser([FromBody] UserDto user)
+        public async Task<UserDto> AddUser(UserDto user)
         {
             return await _userService.AddUserAsync(user);
         }
 
         [HttpPost("update")]
-        public async Task<UserDto> Update([FromBody] UserDto user)
+        public async Task<UserDto> Update(UserDto user)
         {
             return await _userService.UpdateAsync(user);
         }
 
-        [HttpPost("delete")]
-        public async Task<bool> DeleteAsync([FromBody] int id)
+        [HttpDelete("delete")]
+        public async Task<bool> DeleteAsync(int id)
         {
             return await _userService.DeleteAsync(id);
         }
