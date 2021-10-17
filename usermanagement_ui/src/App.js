@@ -9,7 +9,7 @@ function App() {
     <Router>  
       <div>  
       <nav className="navbar navbar-expand navbar-dark bg-dark p-2">
-            <a href="/tutorials" className="navbar-brand">
+            <a href="/UserList" className="navbar-brand">
               User System
             </a>
             <div className="navbar-nav mr-auto">

@@ -4,3 +4,6 @@
   margin-bottom: 10px;    
   color :black !important;    
 }  
+label{
+  text-align: left;
+}

@@ -67,7 +67,7 @@ class Edit extends React.Component {
 }  
   
   onSubmit(e) {   
-    e.preventDefault();  
+       e.preventDefault();  
     const obj = {  
       id:this.props.match.params.id,  
       name: this.state.name, 
@@ -85,35 +85,35 @@ class Edit extends React.Component {
         return (  
             <Container className="App">  
   
-             <h4 className="PageHeading">Update Student Informations</h4>  
+             <h4 className="PageHeading">Update User Informations</h4>  
                 <Form className="form" onSubmit={this.onSubmit}>  
                     <Col>  
-                        <FormGroup row>  
+                        <FormGroup row className="p-4 pb-0">  
                             <Label for="name" sm={2}>Name</Label>  
                             <Col sm={10}>  
                                 <Input type="text" name="name" value={this.state.name} onChange={this.onChangeName}  
                                 placeholder="Enter Name" />  
                             </Col>  
                         </FormGroup>  
-                        <FormGroup row>  
+                        <FormGroup row className="p-4 pb-0">  
                             <Label for="surname" sm={2}>Surname</Label>  
                             <Col sm={10}>  
                                 <Input type="text" name="surname" value={this.state.surname} onChange={this.onChangeSurname} placeholder="Enter Surname" />  
                             </Col>  
                         </FormGroup>  
-                         <FormGroup row>  
+                         <FormGroup row className="p-4 pb-0">  
                             <Label for="email" sm={2}>Email</Label>  
                             <Col sm={10}>  
                                 <Input type="text" name="email" value={this.state.email} onChange={this.onChangeEmail} placeholder="Enter Email" />  
                             </Col>  
                         </FormGroup>  
-                         <FormGroup row>  
+                         <FormGroup row className="p-4 pb-0">  
                             <Label for="phoneNumber" sm={2}>Phone Number</Label>  
                             <Col sm={10}>  
                                 <Input type="text" name="phoneNumber"value={this.state.phoneNumber} onChange={this.onChangePhoneNumber} placeholder="Enter Phone Number" />  
                             </Col>  
                         </FormGroup>   
-                        <FormGroup row>  
+                        <FormGroup row className="p-4 pb-0">  
                             <Label for="dateOfBirth" sm={2}>Date of Birth</Label>  
                             <Col sm={10}>  
                                 <Input type="text" name="dateOfBirth"value={this.state.dateOfBirth} onChange={this.onChangeDateOfBirth} placeholder="Enter Data of Birth" />  
@@ -121,7 +121,7 @@ class Edit extends React.Component {
                         </FormGroup>
                     </Col>  
                     <Col>  
-                        <FormGroup row>  
+                        <FormGroup row className="mt-4">  
                             <Col sm={5}>  
                             </Col>  
                             <Col sm={1}>  

@@ -5,6 +5,7 @@ import { Container, Col, Form, Row, FormGroup, Label, Input, Button } from 'reac
 class AddUser extends React.Component{  
 constructor(props){  
   super(props)  
+  this.createUser = this.createUser.bind(this);  
   this.state = {  
     name:'',  
     surname:'', 
@@ -13,65 +14,38 @@ constructor(props){
     dateOfBirth:'' 
   }  
 }   
-AddUser=()=>{ 
-   
-  const user = {
-    name: this.state.name,  
-    surname: this.state.surname,  
-    email: this.state.email,  
-    phoneNumber: this.state.phoneNumber,
-    dateOfBirth: this.state.dateOfBirth
-  };
+async createUser(){  
+await  axios.post('https://localhost:44399/api/user/add/', {id: 0,name: this.state.name,surname: this.state.surname,email: this.state.email,phoneNumber: this.state.phoneNumber,dateOfBirth: this.state.dateOfBirth})  
+.then(json => {  
+if(json.data.Status==='Success'){  
+  console.log(json.data.Status);  
+  alert("Data Save Successfully");  
+this.props.history.push('/UserList')  
+}  
+else{  
+alert('Data not Saved');  
+debugger;  
+this.props.history.push('/UserList')  
+} 
+this.props.history.push('/UserList')  
+})  
+} 
 
-  axios.post('https://localhost:44399/api/user/add/', { user })
-    .then(res => {
-      console.log(res);
-      console.log(res.data);
-    })
-}
-
-//   axios.post('https://localhost:44399/api/user/add/', {   
-//     name: this.state.name,  
-//   surname: this.state.surname,  
-//   email: this.state.email,  
-//   phoneNumber: this.state.phoneNumber,
-//   dateOfBirth: this.state.dateOfBirth  })  
-// .then(json => {  
-// if(json.data.Status==='Success'){  
-//   console.log(json.data.Status);  
-//   alert("Data Save Successfully");  
-// this.props.history.push('/UserList')  
-// }  
-// else{  
-// alert('Data not Saved');   
-// this.props.history.push('/UserList')  
-// }  
-// })  
-// } 
-
-// AddUser=()=>{ 
-//   const obj = {  
+// createUser(e){ 
+//   e.preventDefault();  
+//   const obj = {
+//     id: 0,
 //     name: this.state.name,  
 //     surname: this.state.surname,  
 //     email: this.state.email,  
 //     phoneNumber: this.state.phoneNumber,
-//     dateOfBirth: this.state.dateOfBirth  
-//   };  
-  
-//     axios.post('https://localhost:44399/api/user/add/', obj)  
-//   .then(json => {  
-//   if(json.data.Status==='Success'){  
-//     console.log(json.data.Status);  
-//     alert("Data Save Successfully");  
+//     dateOfBirth: this.state.dateOfBirth
+//   };
+//    axios.post('https://localhost:44399/api/user/add/', {obj})  
+//   .then(res => console.log(res.data));  
 //   this.props.history.push('/UserList')  
-//   }  
-//   else{  
-//   alert('Data not Saved');  
-//   debugger;  
-//   this.props.history.push('/UserList')  
-//   }  
-//   })  
 // }
+
 handleChange= (e)=> {  
 this.setState({[e.target.name]:e.target.value});  
 }  
@@ -80,33 +54,33 @@ render() {
 return (  
    <Container className="App">  
     <h4 className="PageHeading">Enter User Informations</h4>  
-    <Form className="form">  
+    <Form className="form" onSubmit={this.createUser}>  
       <Col>  
-        <FormGroup row>  
+        <FormGroup row className="p-4 pb-0">  
           <Label for="name" sm={2}>Name</Label>  
           <Col sm={10}>  
-            <Input type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder="Enter Name" />  
+            <Input type="text" name="name" onChange={this.handleChange} value={this.state.name} placeholder="Enter Name" required/>  
           </Col>  
         </FormGroup>  
-        <FormGroup row>  
+        <FormGroup row className="p-4 pb-0">  
           <Label for="surname" sm={2}>Surname</Label>  
           <Col sm={10}>  
-            <Input type="text" name="surname" onChange={this.handleChange} value={this.state.surname} placeholder="Enter Surname" />  
+            <Input type="text" name="surname" onChange={this.handleChange} value={this.state.surname} placeholder="Enter Surname" required/>  
           </Col>  
         </FormGroup>  
-        <FormGroup row>  
+        <FormGroup row className="p-4 pb-0">  
           <Label for="email" sm={2}>Email</Label>  
           <Col sm={10}>  
-            <Input type="text" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Enter Email" />  
+            <Input type="text" name="email" onChange={this.handleChange} value={this.state.email} placeholder="Enter Email" required/>  
           </Col>  
         </FormGroup>  
-        <FormGroup row>  
+        <FormGroup row className="p-4 pb-0">  
           <Label for="phoneNumber" sm={2}>Phone Number</Label>  
           <Col sm={10}>  
-            <Input type="text" name="phoneNumber" onChange={this.handleChange} value={this.state.phoneNumber} placeholder="Enter Phone Number" />  
+            <Input type="text" name="phoneNumber" onChange={this.handleChange} value={this.state.phoneNumber} placeholder="Enter Phone Number" required/>  
           </Col>  
         </FormGroup>  
-        <FormGroup row>  
+        <FormGroup row className="p-4 pb-0">  
           <Label for="dateOfBirth" sm={2}>Date of Birth</Label>  
           <Col sm={10}>  
             <Input type="text" name="dateOfBirth" onChange={this.handleChange} value={this.state.dateOfBirth} placeholder="Enter Date of Birth" />  
@@ -114,11 +88,11 @@ return (
         </FormGroup>  
       </Col>  
       <Col>  
-        <FormGroup row>  
+        <FormGroup row className="mt-4">  
           <Col sm={5}>  
           </Col>  
           <Col sm={1}>  
-          <button type="button" onClick={this.AddUser} className="btn btn-success">Submit</button>  
+          <Button type="submit" color="success">Submit</Button>{' '} 
           </Col>  
           <Col sm={1}>  
             <Button color="danger">Cancel</Button>{' '}  

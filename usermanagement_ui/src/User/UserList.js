@@ -8,7 +8,18 @@ export class UserList extends Component{
     constructor(props) {  
         super(props);  
         this.state = {users: []};  
-      }  
+      } 
+      
+      componentDidUpdate() {
+        const url = "https://localhost:44399/api/user/get_all";
+        const response =  axios.post(url)
+        .then(response=>{
+            this.setState({users: response.data});
+        })
+        .catch(function (error){
+            console.log(error);
+        })
+      }
 
  componentDidMount(){
     const url = "https://localhost:44399/api/user/get_all";
