@@ -83,7 +83,7 @@ return (
         <FormGroup row className="p-4 pb-0">  
           <Label for="dateOfBirth" sm={2}>Date of Birth</Label>  
           <Col sm={10}>  
-            <Input type="text" name="dateOfBirth" onChange={this.handleChange} value={this.state.dateOfBirth} placeholder="Enter Date of Birth" />  
+            <Input type="date" name="dateOfBirth" onChange={this.handleChange} value={this.state.dateOfBirth.toString()} placeholder="Enter Date of Birth" />  
           </Col>  
         </FormGroup>  
       </Col>  

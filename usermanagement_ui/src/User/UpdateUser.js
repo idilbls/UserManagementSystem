@@ -116,7 +116,7 @@ class Edit extends React.Component {
                         <FormGroup row className="p-4 pb-0">  
                             <Label for="dateOfBirth" sm={2}>Date of Birth</Label>  
                             <Col sm={10}>  
-                                <Input type="text" name="dateOfBirth"value={this.state.dateOfBirth} onChange={this.onChangeDateOfBirth} placeholder="Enter Data of Birth" />  
+                                <Input type="date" name="dateOfBirth"value={this.state.dateOfBirth.toString()} onChange={this.onChangeDateOfBirth} placeholder="Enter Data of Birth" />  
                             </Col>  
                         </FormGroup>
                     </Col>  
